@@ -1,6 +1,14 @@
 Run the app
-> ng serve
+    > ng serve
 
 Create a new component
-> ng g component shared/footer
+    > ng g component shared/footer
 
+Component HTML:
+    Set structure
+    > <pre> </pre>
+    Using pipe to display json format:
+    > <pre> {{ movies | json }} </pre>
+
+Setting a datatype (needed with strict mode):
+    > varibaleName: any
