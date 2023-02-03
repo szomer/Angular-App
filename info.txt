@@ -1,0 +1,6 @@
+Run the app
+> ng serve
+
+Create a new component
+> ng g component shared/footer
+
