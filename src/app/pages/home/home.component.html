@@ -1,4 +1,13 @@
 <!-- Place the slider and pass it the movies -->
-<app-slider [items]="movies"></app-slider>
+<app-slider [items]="popularMovies"></app-slider>
+
+<app-items-banner
+  [items]="topRatedMovies"
+  header="Top Rated Movies"
+></app-items-banner>
+<app-items-banner
+  [items]="upcomingMovies"
+  header="Upcoming Movies"
+></app-items-banner>
 
 <!-- <pre>{{ movies | json }}</pre> -->

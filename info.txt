@@ -1,3 +1,8 @@
+- primeflex
+- material-icons
+- angular animations
+
+
 Run the app
     > ng serve
 
@@ -10,5 +15,8 @@ Component HTML:
     Using pipe to display json format:
     > <pre> {{ movies | json }} </pre>
 
-Setting a datatype (needed with strict mode):
+Setting a datatype (typescript):
     > varibaleName: any
+
+Installing angular animations:
+    > npm install @angular/animations

@@ -1,28 +1,34 @@
 <div class="slider">
   <!-- angular feature, loop over items and generate html -->
-  <div class="slide" *ngFor="let item of items">
-    <div class="slide-bg">
-      <img
-        [src]="'https://image.tmdb.org/t/p/original' + item.backdrop_path"
-        alt=""
-      />
-    </div>
-    <div class="slide-pane">
-      <h2 class="name">{{ item.title }}</h2>
-      <div class="meta">
-        <div class="info">
-          <span class="rating">
-            <span class="material-icons">star</span>
-            <span class="rating-value">{{ item.vote_average }}</span>
-            <span>/10</span>
-          </span>
-          <span>{{ item.vote_count }} Reviews</span>
-          <span>{{ item.release_date | date : 'yyyy' }}</span>
+  <!-- apply animation to each slide -->
+  <!-- get index of each item with i -->
+  <!-- ng container wont be rendered, used for conditions -->
+  <!-- cannot have more than 1 *ng condition for element -->
+  <ng-container *ngFor="let item of items; let i = index">
+    <div class="slide" *ngIf="i === currentSlideIndex" @slideFade>
+      <div class="slide-bg">
+        <img
+          [src]="'https://image.tmdb.org/t/p/original' + item.backdrop_path"
+          alt=""
+        />
+      </div>
+      <div class="slide-pane">
+        <h2 class="name">{{ item.title }}</h2>
+        <div class="meta">
+          <div class="info">
+            <span class="rating">
+              <span class="material-icons">star</span>
+              <span class="rating-value">{{ item.vote_average }}</span>
+              <span>/10</span>
+            </span>
+            <span>{{ item.vote_count }} Reviews</span>
+            <span>{{ item.release_date | date : 'yyyy' }}</span>
+          </div>
+        </div>
+        <div class="description">
+          {{ item.overview }}
         </div>
       </div>
-      <div class="description">
-        {{ item.overview }}
-      </div>
     </div>
-  </div>
+  </ng-container>
 </div>

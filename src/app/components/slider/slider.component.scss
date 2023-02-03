@@ -10,9 +10,10 @@
   position: relative;
 
   .slide {
-    position: relative;
+    position: absolute;
     display: flex;
     height: 35rem;
+    width: 100%;
 
     &-bg {
       position: relative;
@@ -72,7 +73,7 @@
 
             .material-icons {
               margin-right: 5px;
-              color: #d4af37;
+              color: $gold;
             }
 
             &-value {
