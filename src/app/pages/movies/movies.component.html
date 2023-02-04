@@ -1,1 +1,16 @@
-<p>movies works!</p>
+<div class="container">
+  <div class="grid">
+    <div *ngFor="let movie of movies" class="col-6 md:col-3 lg:col-3">
+      <app-item [itemData]="movie"></app-item>
+    </div>
+  </div>
+  <div>
+    <!-- onPageChange will run method when page changed with event-->
+    <!-- 10000 records / 20 movies per page = 500 pages of movies-->
+    <p-paginator
+      [rows]="20"
+      [totalRecords]="10000"
+      (onPageChange)="paginate($event)"
+    ></p-paginator>
+  </div>
+</div>

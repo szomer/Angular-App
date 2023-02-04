@@ -7,6 +7,8 @@ import { Movie } from 'src/app/models/Movie';
   styleUrls: ['./items-banner.component.scss'],
 })
 export class ItemsBannerComponent {
+  // get movies array
   @Input() items: Movie[] = [];
+  // get name of header
   @Input() header: string = '';
 }

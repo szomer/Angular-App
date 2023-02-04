@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { Movie, MovieDto } from '../../models/Movie';
+import { Movie } from '../../models/Movie';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,7 @@ import { Movie, MovieDto } from '../../models/Movie';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  // initialize arrays for different types of movies
   popularMovies: Movie[] = [];
   topRatedMovies: Movie[] = [];
   upcomingMovies: Movie[] = [];
@@ -20,6 +21,8 @@ export class HomeComponent implements OnInit {
     // get movies
     // subscribe means waiting for the data to be ready for me
     // call back function
+
+    // get the movies from the MoviesService and populate arrays
     this.moviesService.getMovies('popular').subscribe((movies) => {
       this.popularMovies = movies;
     });

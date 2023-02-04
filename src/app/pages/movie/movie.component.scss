@@ -1,0 +1,42 @@
+@import '../../../styles/colors';
+
+/* To make an styling adjustment */
+:host ::ng-deep {
+  .p-tabview-nav {
+    // center the navigation headers
+    justify-content: center;
+
+    li {
+      // bg color of navigation bar
+      .p-tabview-nav-link {
+        background: $bgColor;
+      }
+
+      // bg color of selected tab
+      &.p-highlight .p-tabview-nav-link {
+        background: $bgColor;
+      }
+    }
+  }
+}
+
+.poster {
+  max-width: 100%;
+}
+
+.overview {
+  line-height: 1.5;
+}
+
+.stat {
+  display: flex;
+  margin-bottom: 10px;
+
+  .label {
+    width: 150px;
+    font-weight: bold;
+  }
+  .value {
+    color: $gold;
+  }
+}

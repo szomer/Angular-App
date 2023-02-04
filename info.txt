@@ -1,6 +1,9 @@
 - primeflex
 - material-icons
+- google fonts
 - angular animations
+- rxjs
+- primeng (paginator)
 
 
 Run the app
@@ -20,3 +23,11 @@ Setting a datatype (typescript):
 
 Installing angular animations:
     > npm install @angular/animations
+
+Install prime flex
+    > npm install primeflex
+
+Install Prime NG
+    > npm install primeng --save
+    > npm install primeicons --save
+    > npm install @angular/cdk --save

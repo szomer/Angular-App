@@ -1,11 +1,11 @@
 <!-- Only render If there is itemData -->
-
 <ng-container *ngIf="itemData">
-  <a class="item">
+  <!-- router link to navigate to /movie -->
+  <a class="item" [routerLink]="'/movie/' + itemData.id">
     <div class="item-rating">
       <i class="material-icons">star</i>
-      <span>{{ itemData.vote_average }}</span
-      >/10
+      <span>{{ itemData.vote_average }}</span>
+      /10
     </div>
     <div class="item-image">
       <img

@@ -8,8 +8,10 @@ import { IMAGE_SIZES } from '../../constants/image-sizes';
   styleUrls: ['./item.component.scss'],
 })
 export class ItemComponent implements OnInit {
+  // get the movie to display
   @Input() itemData: Movie | null = null;
 
+  // image url with proper sizes
   imageSizes = IMAGE_SIZES;
 
   constructor() {}

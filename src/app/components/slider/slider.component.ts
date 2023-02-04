@@ -26,15 +26,25 @@ export class SliderComponent implements OnInit {
   // receive items -> array
   // items of type Movie-array
   // has to be initialized as empty array
+
+  // get the movies
   @Input() items: Movie[] = [];
 
-  imageSizes = IMAGE_SIZES;
+  // get boolean value to check if banner
+  @Input() isBanner: boolean = false;
 
+  // get the image url/sizes
+  readonly imageSizes = IMAGE_SIZES;
+  // create index variable
   currentSlideIndex: number = 0;
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
-    }, 6000);
+    // check if its a banner or slide show
+    if (!this.isBanner) {
+      // every 6 seconds change the displayed slide
+      setInterval(() => {
+        this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
+      }, 6000);
+    }
   }
 }

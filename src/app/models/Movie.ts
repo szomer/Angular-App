@@ -1,3 +1,4 @@
+// Model for a Movie
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -13,8 +14,18 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  revenue: number;
+  runtime: number;
+  status: string;
+  genres: Genre[];
 }
 
+export interface Genre {
+  id: number;
+  name: String;
+}
+
+// Model for the response of the API
 export interface MovieDto {
   page: number;
   results: Movie[];
