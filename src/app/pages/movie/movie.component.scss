@@ -40,3 +40,12 @@
     color: $gold;
   }
 }
+
+.genre-list {
+  > span {
+    &:not(:last-child):after {
+      content: ',';
+      margin-right: 7px;
+    }
+  }
+}

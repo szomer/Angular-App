@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   // Requests the movies for certain page
   getPageMovies(page: number) {
     this.moviesService
-      .searchMovies(page)
+      .getMoviesCategory(page)
       .subscribe((movies) => (this.movies = movies));
   }
 

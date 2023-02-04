@@ -45,13 +45,39 @@
           <div class="stat">
             <div class="label">Genres:</div>
             <div class="value">
-              <span *ngFor="let genre of movie.genres">{{ genre.name }} </span>
+              <div class="genre-list">
+                <span *ngFor="let genre of movie.genres">{{ genre.name }}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </p-tabPanel>
-    <p-tabPanel header="Videos">Content2</p-tabPanel>
-    <p-tabPanel header="Photos">Content3</p-tabPanel>
+    <p-tabPanel header="Videos">
+      <div class="grid">
+        <ng-container *ngFor="let video of videos">
+          <div class="col-12 md:col-4 lg:col-4">
+            <app-video-embed
+              [key]="video.key"
+              [site]="video.site"
+            ></app-video-embed>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Photos">
+      <div class="grid">
+        <ng-container *ngFor="let image of images?.backdrops">
+          <div class="col12 md:col-4 ml:col-4">
+            <p-image
+              [src]="imageSize.large + image.file_path"
+              alt="Image"
+              width="100%"
+              [preview]="true"
+            ></p-image>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
   </p-tabView>
 </ng-container>

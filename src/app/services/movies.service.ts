@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // service for performing http requests
 import { HttpClient } from '@angular/common/http';
-import { Movie, MovieDto } from '../models/Movie';
+import { Images, Movie, MovieDto, MovieVideoDto } from '../models/Movie';
 
 // rxjs: Reactive Extenstions library for JS
 // used for dealing with events and integration points
@@ -36,13 +36,8 @@ export class MoviesService {
       );
   }
 
-  getMovie(id: string) {
-    return this.http.get<Movie>(
-      `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`
-    );
-  }
-
-  searchMovies(page: number = 1) {
+  // get movies of category popular/upcoming/toprated/etc
+  getMoviesCategory(page: number = 1) {
     return this.http
       .get<MovieDto>(
         `${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}`
@@ -52,5 +47,31 @@ export class MoviesService {
           return of(res.results);
         })
       );
+  }
+
+  // get a specific movie
+  getMovie(id: string) {
+    return this.http.get<Movie>(
+      `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`
+    );
+  }
+
+  // get videos of a specific movie
+  getMovieVideos(id: string) {
+    return this.http
+      .get<MovieVideoDto>(
+        `${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}`
+      )
+      .pipe(
+        switchMap((res) => {
+          return of(res.results);
+        })
+      );
+  }
+
+  getMovieImages(id: string) {
+    return this.http.get<Images>(
+      `${this.baseUrl}/movie/${id}/images?api_key=${this.apiKey}`
+    );
   }
 }

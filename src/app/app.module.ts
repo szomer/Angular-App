@@ -15,10 +15,12 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
 import { ItemComponent } from './components/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 
 // prime ng
 import { PaginatorModule } from 'primeng/paginator';
-import { TabViewModule } from 'primeng/tabview'; // imports only what i need
+import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { TabViewModule } from 'primeng/tabview'; // imports only what i need
     ItemsBannerComponent,
     ItemComponent,
     MovieComponent,
+    VideoEmbedComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { TabViewModule } from 'primeng/tabview'; // imports only what i need
     HttpClientModule, // needed to make http req
     PaginatorModule, // page navigation - primeNG
     TabViewModule, // tab navigation - primeNG
+    ImageModule, // image preview - primeNG
   ],
   providers: [],
   bootstrap: [AppComponent],
