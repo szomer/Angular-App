@@ -7,6 +7,7 @@ import {
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../models/Movie';
+import { IMAGE_SIZES } from '../../constants/image-sizes';
 
 @Component({
   selector: 'app-slider',
@@ -26,6 +27,8 @@ export class SliderComponent implements OnInit {
   // items of type Movie-array
   // has to be initialized as empty array
   @Input() items: Movie[] = [];
+
+  imageSizes = IMAGE_SIZES;
 
   currentSlideIndex: number = 0;
 

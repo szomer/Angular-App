@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 // service for performing http requests
 import { HttpClient } from '@angular/common/http';
+import { MovieDto } from '../models/Movie';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +17,14 @@ export class MoviesService {
   // Instance of HttpClient with the name 'http'
   constructor(private http: HttpClient) {}
 
-  getMovies(route: string = 'popular') {
+  getMovies(route: string = 'popular', count: number = 12) {
     // use the http instance for requests
-    return this.http.get(
-      `${this.baseUrl}/movie/${route}?api_key=${this.apiKey}`
-    );
+    return this.http
+      .get<MovieDto>(`${this.baseUrl}/movie/${route}?api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.results.slice(0, count));
+        })
+      );
   }
 }

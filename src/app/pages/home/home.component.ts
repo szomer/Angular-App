@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { Movie } from '../../models/Movie';
+import { Movie, MovieDto } from '../../models/Movie';
 
 @Component({
   selector: 'app-home',
@@ -20,14 +20,14 @@ export class HomeComponent implements OnInit {
     // get movies
     // subscribe means waiting for the data to be ready for me
     // call back function
-    this.moviesService.getMovies('popular').subscribe((response: any) => {
-      this.popularMovies = response.results;
+    this.moviesService.getMovies('popular').subscribe((movies) => {
+      this.popularMovies = movies;
     });
-    this.moviesService.getMovies('top_rated').subscribe((response: any) => {
-      this.topRatedMovies = response.results;
+    this.moviesService.getMovies('top_rated').subscribe((movies) => {
+      this.topRatedMovies = movies;
     });
-    this.moviesService.getMovies('upcoming').subscribe((response: any) => {
-      this.upcomingMovies = response.results;
+    this.moviesService.getMovies('upcoming').subscribe((movies) => {
+      this.upcomingMovies = movies;
     });
   }
 }
