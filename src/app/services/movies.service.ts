@@ -2,7 +2,13 @@ import { Injectable } from '@angular/core';
 
 // service for performing http requests
 import { HttpClient } from '@angular/common/http';
-import { Images, Movie, MovieDto, MovieVideoDto } from '../models/Movie';
+import {
+  Credits,
+  Images,
+  Movie,
+  MovieDto,
+  MovieVideoDto,
+} from '../models/Movie';
 
 // rxjs: Reactive Extenstions library for JS
 // used for dealing with events and integration points
@@ -69,9 +75,17 @@ export class MoviesService {
       );
   }
 
+  // get images of a specific movie
   getMovieImages(id: string) {
     return this.http.get<Images>(
       `${this.baseUrl}/movie/${id}/images?api_key=${this.apiKey}`
+    );
+  }
+
+  // get credits of a specific movie
+  getMovieCredits(id: string) {
+    return this.http.get<Credits>(
+      `${this.baseUrl}/movie/${id}/credits?api_key=${this.apiKey}`
     );
   }
 }

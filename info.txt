@@ -31,3 +31,11 @@ Install Prime NG
     > npm install primeng --save
     > npm install primeicons --save
     > npm install @angular/cdk --save
+
+
+Components:
+    > ngOnInit()      -> initializing of component
+    > ngOnDestroy()   -> when component destroyed
+to destroy when using subscribe():
+    > this.route.params.pipe(first()).subscribe(({ id }) => {}
+    > with httpclient we dont need to destroy, it does it automatically
