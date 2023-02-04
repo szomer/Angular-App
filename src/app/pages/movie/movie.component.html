@@ -89,4 +89,9 @@
       </div>
     </ng-template>
   </p-carousel>
+  <!-- similar movies -->
+  <ng-container *ngIf="movies">
+    <app-items-banner [items]="movies" header="Similar Movies">
+    </app-items-banner>
+  </ng-container>
 </ng-container>

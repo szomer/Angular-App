@@ -9,6 +9,7 @@ import {
   MovieDto,
   MovieVideoDto,
 } from '../models/Movie';
+import { GenreDto } from '../models/Genre';
 
 // rxjs: Reactive Extenstions library for JS
 // used for dealing with events and integration points
@@ -43,10 +44,38 @@ export class MoviesService {
   }
 
   // get movies of category popular/upcoming/toprated/etc
-  getMoviesCategory(page: number = 1) {
+  getSearchedMovies(page: number = 1, searchValue?: string) {
+    const uri = searchValue ? '/search/movie' : '/movie/popular';
+
     return this.http
       .get<MovieDto>(
-        `${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}`
+        `${this.baseUrl}${uri}?page=${page}&query=${searchValue}&api_key=${this.apiKey}`
+      )
+      .pipe(
+        switchMap((res) => {
+          return of(res.results);
+        })
+      );
+  }
+
+  // Get movies similar to a specific movie
+  getSimilarMovies(id: string, count = 12) {
+    return this.http
+      .get<MovieDto>(
+        `${this.baseUrl}/movie/${id}/similar?api_key=${this.apiKey}`
+      )
+      .pipe(
+        switchMap((res) => {
+          return of(res.results.slice(0, count));
+        })
+      );
+  }
+
+  // Get movies of specific genre
+  getMoviesByGenre(id: string, pageNumber: number) {
+    return this.http
+      .get<MovieDto>(
+        `${this.baseUrl}/discover/movie?with_genres=${id}&page=${pageNumber}&api_key=${this.apiKey}`
       )
       .pipe(
         switchMap((res) => {
@@ -87,5 +116,16 @@ export class MoviesService {
     return this.http.get<Credits>(
       `${this.baseUrl}/movie/${id}/credits?api_key=${this.apiKey}`
     );
+  }
+
+  // Get list of genres
+  getGenres() {
+    return this.http
+      .get<GenreDto>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.genres);
+        })
+      );
   }
 }

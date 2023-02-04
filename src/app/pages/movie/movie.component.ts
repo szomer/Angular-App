@@ -15,6 +15,7 @@ export class MovieComponent implements OnInit, OnDestroy {
   videos: Video[] = [];
   images: Images | null = null;
   credits: Credits | null = null;
+  movies: Movie[] = [];
 
   imageSize = IMAGE_SIZES;
 
@@ -30,6 +31,7 @@ export class MovieComponent implements OnInit, OnDestroy {
       this.getVideos(id);
       this.getImages(id);
       this.getCredits(id);
+      this.getSimilarMovies(id);
     });
   }
 
@@ -58,6 +60,12 @@ export class MovieComponent implements OnInit, OnDestroy {
   getCredits(id: string) {
     this.moviesService.getMovieCredits(id).subscribe((creditData) => {
       this.credits = creditData;
+    });
+  }
+
+  getSimilarMovies(id: string) {
+    this.moviesService.getSimilarMovies(id).subscribe((similarMoviesData) => {
+      this.movies = similarMoviesData;
     });
   }
 }

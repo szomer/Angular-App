@@ -16,12 +16,14 @@ import { ItemsBannerComponent } from './components/items-banner/items-banner.com
 import { ItemComponent } from './components/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
+import { GenresComponent } from './pages/genres/genres.component';
 
 // prime ng
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
 import { ImageModule } from 'primeng/image';
 import { CarouselModule } from 'primeng/carousel';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { CarouselModule } from 'primeng/carousel';
     ItemComponent,
     MovieComponent,
     VideoEmbedComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { CarouselModule } from 'primeng/carousel';
     TabViewModule, // tab navigation - primeNG
     ImageModule, // image preview - primeNG
     CarouselModule, // item slideshow / carousel - primeNG
+    InputTextModule, // input text box - primeNG
   ],
   providers: [],
   bootstrap: [AppComponent],
