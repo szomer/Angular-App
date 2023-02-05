@@ -6,6 +6,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { GenresComponent } from './pages/genres/genres.component';
+import { TvshowsComponent } from './pages/tvshows/tvshows.component';
+import { TvshowComponent } from './pages/tvshow/tvshow.component';
 
 // Routes of the website
 const routes: Routes = [
@@ -14,19 +16,31 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'movies',
+    path: 'movies', // display movies
     component: MoviesComponent,
   },
   {
-    path: 'movies/genre/:id',
+    path: 'movies/genre/:id', // display movies of genre
     component: MoviesComponent,
   },
   {
-    path: 'movie/:id', // path /movie with param /id -> movie/2343
+    path: 'movie/:id', // specific movie with param /id -> movie/2343
     component: MovieComponent,
   },
   {
-    path: 'genres',
+    path: 'tvshows', // all tvshows
+    component: TvshowsComponent,
+  },
+  {
+    path: 'tvshows/genre/:id', // display tvshows of genre
+    component: MoviesComponent,
+  },
+  {
+    path: 'tvshow/:id', // specific tvshow with param /id
+    component: TvshowComponent,
+  },
+  {
+    path: 'genres', // all genres
     component: GenresComponent,
   },
   {

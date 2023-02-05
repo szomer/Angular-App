@@ -5,6 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
+// prime ng
+import { PaginatorModule } from 'primeng/paginator';
+import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
+import { CarouselModule } from 'primeng/carousel';
+import { InputTextModule } from 'primeng/inputtext';
+
 // components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -17,13 +24,8 @@ import { ItemComponent } from './components/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 import { GenresComponent } from './pages/genres/genres.component';
-
-// prime ng
-import { PaginatorModule } from 'primeng/paginator';
-import { TabViewModule } from 'primeng/tabview';
-import { ImageModule } from 'primeng/image';
-import { CarouselModule } from 'primeng/carousel';
-import { InputTextModule } from 'primeng/inputtext';
+import { TvshowsComponent } from './pages/tvshows/tvshows.component';
+import { TvshowComponent } from './pages/tvshow/tvshow.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { InputTextModule } from 'primeng/inputtext';
     MovieComponent,
     VideoEmbedComponent,
     GenresComponent,
+    TvshowsComponent,
+    TvshowComponent,
   ],
   imports: [
     BrowserModule,

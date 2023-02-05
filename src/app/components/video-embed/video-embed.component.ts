@@ -10,27 +10,27 @@ export class VideoEmbedComponent implements OnInit {
   @Input() site: string = 'Youtube';
   @Input() key: string | null = null;
 
-  // var containing the video url - safe resource url
+  // Video url - safe resource url
   videoUrl: SafeResourceUrl = '';
 
-  // create DomSanitizer obj
+  // Create DomSanitizer obj for safe url
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     // Create the video link depending on platform
     switch (this.site) {
-      case 'YouTube':
+      case 'YouTube': // YouTube
         this.videoUrl = this.getSafeUrl(
           'https://youtube.com/embed/' + this.key
         );
         break;
-      case 'Vimeo':
+      case 'Vimeo': // Vimeo
         this.videoUrl = this.getSafeUrl('https://vimeo.com/embed/' + this.key);
         break;
     }
   }
 
-  // return a safe url
+  // Return a safe url for video
   getSafeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }

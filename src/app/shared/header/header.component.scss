@@ -26,6 +26,9 @@ header {
       li {
         display: inline;
         margin-right: 15px;
+        a:hover {
+          color: $lightGrey;
+        }
       }
     }
   }

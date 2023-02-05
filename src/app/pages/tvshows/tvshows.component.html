@@ -16,13 +16,13 @@
     </div>
   </div>
   <div class="grid">
-    <div *ngFor="let movie of movies" class="col-6 md:col-3 lg:col-3">
-      <app-item [itemData]="movie" [path]="'/movie/' + movie.id"></app-item>
+    <div class="col-6 md:col-3 lg:col-3" *ngFor="let tvShow of tvShows">
+      <app-item [itemData]="tvShow" [path]="'/tvshow/' + tvShow.id"></app-item>
     </div>
   </div>
   <div>
     <!-- onPageChange will run method when page changed with event-->
-    <!-- 10000 records / 20 movies per page = 500 pages of movies-->
+    <!-- 10000 records / 20 tvshows per page = 500 pages of tvshows-->
     <p-paginator
       [rows]="20"
       [totalRecords]="10000"

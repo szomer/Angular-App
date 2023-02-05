@@ -1,15 +1,15 @@
 import { Item } from './Item';
 
 // Movie DTO
-export interface MovieDto {
+export interface TvShowDto {
   page: number;
-  results: Movie[];
+  results: TvShow[];
   total_results: number;
   total_pages: number;
 }
 
 // Movie
-export interface Movie {
+export interface TvShow {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -20,6 +20,7 @@ export interface Movie {
   popularity: number;
   poster_path: string;
   release_date: string;
+  name: string;
   title: string;
   video: boolean;
   vote_average: number;
@@ -31,7 +32,7 @@ export interface Movie {
 }
 
 // Videos of Movie
-export interface MovieVideoDto {
+export interface TvShowVideoDto {
   id: number;
   results: Video[];
 }
@@ -63,16 +64,16 @@ export interface Genre {
   name: String;
 }
 
-export const mapMovieToItem = (movie: Movie): Item => {
+export const mapTvShowToItem = (tvShow: TvShow): Item => {
   return {
-    id: movie.id,
-    title: movie.title,
-    poster_path: movie.poster_path,
-    vote_average: movie.vote_average,
-    backdrop_path: movie.backdrop_path,
-    vote_count: movie.vote_count,
-    release_date: movie.release_date,
-    overview: movie.overview,
-    routePath: '/movie/' + movie.id,
+    id: tvShow.id,
+    title: tvShow.name,
+    poster_path: tvShow.poster_path,
+    vote_average: tvShow.vote_average,
+    backdrop_path: tvShow.backdrop_path,
+    vote_count: tvShow.vote_count,
+    release_date: tvShow.release_date,
+    overview: tvShow.overview,
+    routePath: '/tvshow/' + tvShow.id,
   };
 };

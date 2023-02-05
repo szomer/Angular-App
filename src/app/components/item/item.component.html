@@ -1,7 +1,7 @@
 <!-- Only render If there is itemData -->
 <ng-container *ngIf="itemData">
   <!-- router link to navigate to /movie -->
-  <a class="item" [routerLink]="'/movie/' + itemData.id">
+  <a class="item" [routerLink]="path">
     <div class="item-rating">
       <i class="material-icons">star</i>
       <span>{{ itemData.vote_average | number : '1.0-1' }}</span>
@@ -10,9 +10,9 @@
     <div class="item-image">
       <img
         [src]="imageSizes.medium + itemData.poster_path"
-        [alt]="itemData.title"
+        [alt]="itemData.title || itemData.name"
       />
     </div>
-    <div class="item-title">{{ itemData.title }}</div>
+    <div class="item-title">{{ itemData.title || itemData.name }}</div>
   </a>
 </ng-container>

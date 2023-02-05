@@ -2,12 +2,23 @@
 <app-slider [items]="popularMovies"></app-slider>
 
 <app-items-banner
+  [items]="upcomingMovies"
+  header="Upcoming Movies"
+></app-items-banner>
+
+<app-items-banner
+  [items]="popularTvShows"
+  header="Popular Tv Shows"
+></app-items-banner>
+
+<app-items-banner
   [items]="topRatedMovies"
   header="Top Rated Movies"
 ></app-items-banner>
+
 <app-items-banner
-  [items]="upcomingMovies"
-  header="Upcoming Movies"
+  [items]="topRatedTvShows"
+  header="Top Rated Tv Shows"
 ></app-items-banner>
 
 <!-- <pre>{{ movies | json }}</pre> -->

@@ -6,8 +6,9 @@ import {
   animate,
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from '../../models/Movie';
+
 import { IMAGE_SIZES } from '../../constants/image-sizes';
+import { Item } from 'src/app/models/Item';
 
 @Component({
   selector: 'app-slider',
@@ -27,21 +28,18 @@ export class SliderComponent implements OnInit {
   // items of type Movie-array
   // has to be initialized as empty array
 
-  // get the movies
-  @Input() items: Movie[] = [];
+  @Input() items: Item[] = []; // Movies to display
 
-  // get boolean value to check if banner
-  @Input() isBanner: boolean = false;
+  @Input() isBanner: boolean = false; // Banner validator
 
-  // get the image url/sizes
-  readonly imageSizes = IMAGE_SIZES;
-  // create index variable
-  currentSlideIndex: number = 0;
+  readonly imageSizes = IMAGE_SIZES; // Image size URL
+
+  currentSlideIndex: number = 0; // Slide index
 
   ngOnInit(): void {
-    // check if its a banner or slide show
+    // Check if its a banner or slide show
     if (!this.isBanner) {
-      // every 6 seconds change the displayed slide
+      // Every 6 seconds change the displayed slide
       setInterval(() => {
         this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
       }, 6000);

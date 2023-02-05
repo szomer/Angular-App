@@ -6,7 +6,11 @@
   height: 50px;
   background-color: $gold;
   color: $bgColor;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   justify-content: center;
   align-items: center;
+}
+
+.genre-link:hover {
+  box-shadow: inset 0px 0px 8px $black;
 }
