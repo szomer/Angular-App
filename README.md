@@ -2,12 +2,11 @@
 
 2 Feb 2023
 
-App created by following an Angular course.
-
 - Angular frontend app
 - primeflex, primeng
 - material-icons, google fonts
 - rxjs
+- the movie database API 
 
 ---
 
