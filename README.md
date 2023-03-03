@@ -1,6 +1,6 @@
 # Movies App
 
-Application to view detailed information about movies, such as description, cast members, videos and images. To view the website click [HERE](https://movies-ba84f.web.app/) (hosted on Firebase). 
+Frontend application to view detailed information about movies, such as description, cast members, videos and images. To view the website click [HERE](https://movies-ba84f.web.app/) (hosted on Firebase). 
 
 - Angular frontend app
 - primeflex, primeng
